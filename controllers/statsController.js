@@ -4,7 +4,11 @@ const catchAsync = require('../utils/catchAsync');
 exports.getStats = catchAsync(async (req, res) => {
   const { platform, username } = req.params;
   const response = await api.getStats(platform, username);
-  if (response.status === 'error') throw new Error('');
+
+  if (response.status === 'error')
+    throw new Error(
+      "Sorry, that profile either doesn't exist or their data is private!"
+    );
 
   res.json({
     status: 'success',
