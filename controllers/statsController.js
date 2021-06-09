@@ -1,6 +1,7 @@
 const api = require('../utils/API');
+const catchAsync = require('../utils/catchAsync');
 
-exports.getStats = async (req, res) => {
+exports.getStats = catchAsync(async (req, res) => {
   const { platform, username } = req.params;
   const response = await api.getStats(platform, username);
   if (response.status === 'error') throw new Error('');
@@ -19,4 +20,4 @@ exports.getStats = async (req, res) => {
       },
     },
   });
-};
+});
