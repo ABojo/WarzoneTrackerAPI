@@ -2,7 +2,7 @@ const router = require('express').Router();
 const statsRouter = require('./statsRoutes');
 const matchesRouter = require('./matchesRoutes');
 
-router.get('/stats', statsRouter);
-router.get('/matches', matchesRouter);
+router.use('/stats', statsRouter);
+router.use('/matches', matchesRouter);
 
 module.exports = router;
