@@ -4,9 +4,16 @@ const express = require('express');
 const app = express();
 const apiRouter = require('./routes/apiRoutes');
 const errorHandler = require('./utils/errorHandler');
+const api = require('./utils/API');
 
 //Logging middleware
 app.use(morgan('dev'));
+
+//Add api object so its available in all further middleware
+app.use((req, res, next) => {
+  req.api = api;
+  next();
+});
 
 app.use('/api', apiRouter);
 
