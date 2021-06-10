@@ -17,6 +17,12 @@ app.use((req, res, next) => {
 
 app.use('/api', apiRouter);
 
+app.use((req, res) => {
+  res
+    .status(404)
+    .json({ status: 'error', message: 'Sorry that route does not exist!' });
+});
+
 //Middelware built to send out error messages
 app.use(errorHandler);
 
