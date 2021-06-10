@@ -9,6 +9,8 @@ exports.getMatches = catchAsync(async (req, res) => {
       "Sorry, that profile either doesn't exist or their data is private!"
     );
 
+  console.log(response.data.matches);
+
   const matches = response.data.matches.map((match) => {
     return {
       matchDetails: {
@@ -37,6 +39,7 @@ exports.getMatches = catchAsync(async (req, res) => {
         username: match.player.username,
         uno: match.player.uno,
         clantag: match.player.clantag,
+        team: match.player.team,
       },
     };
   });
