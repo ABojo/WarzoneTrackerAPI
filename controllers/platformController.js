@@ -7,10 +7,11 @@ exports.getPlayer = catchAsync(async (req, res) => {
     req.api.getMatches(platform, username),
   ]);
 
-  if (statsRes.status === 'error' || matchesRes.status === 'error')
-    throw new Error(
-      "Sorry, that profile either doesn't exist or their data is private!"
-    );
+  if (statsRes.data.message === 'Not permitted: user not found')
+    throw new Error('Sorry, that profile does not exist!');
+
+  if (statsRes.data.message === 'Not permitted: not allowed')
+    throw new Error("Sorry, that profile's data is set to private!");
 
   const matches = matchesRes.data.matches.map((match) => {
     return {
