@@ -27,6 +27,14 @@ exports.getMatch = catchAsync(async (req, res) => {
     };
   });
 
+  const averageSPM =
+    players.reduce((acc, player) => acc + player.scorePerMinute, 0) /
+    matchInfo.playerCount;
+
+  const averageTimeMoving =
+    players.reduce((acc, player) => acc + player.percentTimeMoving, 0) /
+    matchInfo.playerCount;
+
   res.json({
     status: 'success',
     data: {
@@ -36,6 +44,8 @@ exports.getMatch = catchAsync(async (req, res) => {
       mode: matchInfo.mode,
       duration: matchInfo.duration,
       playerCount: matchInfo.playerCount,
+      averageSPM,
+      averageTimeMoving,
       players,
     },
   });
