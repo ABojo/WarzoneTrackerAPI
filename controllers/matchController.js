@@ -4,6 +4,9 @@ exports.getMatch = catchAsync(async (req, res) => {
   const { id } = req.params;
   const response = await req.api.getMatchDetails(id);
 
+  if (response.data.allPlayers.length === 0)
+    throw new Error('Sorry, the match id you provided does not exist!');
+
   const matchInfo = response.data.allPlayers[0];
   const players = response.data.allPlayers.map((player) => {
     return {
