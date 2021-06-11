@@ -1,4 +1,5 @@
 require('dotenv').config();
+const cors = require('cors');
 const morgan = require('morgan');
 const express = require('express');
 const app = express();
@@ -8,6 +9,9 @@ const api = require('./utils/API');
 
 //Logging middleware
 app.use(morgan('dev'));
+
+//Allow all CORS requests
+app.use(cors());
 
 //Add api object so its available in all further middleware
 app.use((req, res, next) => {
