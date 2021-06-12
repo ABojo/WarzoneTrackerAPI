@@ -39,15 +39,26 @@ exports.getPlayer = catchAsync(async (req, res) => {
     };
   });
 
+  const { properties } = statsRes.data.lifetime.mode.br;
+
   res.json({
     status: 'success',
     data: {
       profile: {
-        platform: statsRes.data.platform,
-        username: statsRes.data.username,
-        level: statsRes.data.level,
-        prestige: statsRes.data.prestige,
-        ...statsRes.data.lifetime.mode.br.properties,
+        Prestige: statsRes.data.prestige,
+        Level: statsRes.data.level,
+        'KD Ratio': properties.kdRatio.toFixed(2),
+        Kills: properties.kills,
+        Downs: properties.downs,
+        Deaths: properties.deaths,
+        Wins: properties.wins,
+        'Games Played': properties.gamesPlayed,
+        'Win Percentage': `${(
+          (properties.wins / properties.gamesPlayed) *
+          100
+        ).toFixed(2)}%`,
+        'Score Per Minute': Math.round(properties.scorePerMinute),
+        Revives: properties.revives,
       },
       matches,
     },
