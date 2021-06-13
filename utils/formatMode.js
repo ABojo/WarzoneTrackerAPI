@@ -1,5 +1,5 @@
 const formatMode = (mode) => {
-  if (mode.includes('pln')) return 'Plunder';
+  if (mode.includes('pl')) return 'Plunder';
   if (mode.includes('rebirth')) return 'Rebirth';
 
   const str = mode.split('br_br')[1];
