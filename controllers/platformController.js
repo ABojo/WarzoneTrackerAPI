@@ -52,11 +52,9 @@ exports.getPlayer = catchAsync(async (req, res) => {
         Downs: properties.downs,
         Deaths: properties.deaths,
         Wins: properties.wins,
-        'Games Played': properties.gamesPlayed,
-        'Win Percentage': `${(
-          (properties.wins / properties.gamesPlayed) *
-          100
-        ).toFixed(2)}%`,
+        'Win %': `${((properties.wins / properties.gamesPlayed) * 100).toFixed(
+          2
+        )}%`,
         'Score Per Minute': Math.round(properties.scorePerMinute),
         Revives: properties.revives,
       },
