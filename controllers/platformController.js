@@ -34,7 +34,7 @@ exports.getPlayer = catchAsync(async (req, res) => {
       scorePerMinute: Math.round(match.playerStats.scorePerMinute),
       totalXp: match.playerStats.totalXp,
       distanceTraveled: match.playerStats.distanceTraveled,
-      percentTimeMoving: match.playerStats.percentTimeMoving,
+      percentTimeMoving: `${Math.round(match.playerStats.percentTimeMoving)}%`,
       clantag: match.player.clantag,
       team: match.player.team,
       uno: match.player.uno,
