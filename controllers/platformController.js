@@ -1,4 +1,5 @@
 const catchAsync = require('../utils/catchAsync');
+const formatMode = require('../utils/formatMode');
 
 exports.getPlayer = catchAsync(async (req, res) => {
   const { platform, username } = req.params;
@@ -18,7 +19,7 @@ exports.getPlayer = catchAsync(async (req, res) => {
       teamPlacement: match.playerStats.teamPlacement,
       startTime: match.utcStartSeconds,
       endTime: match.utcEndSeconds,
-      mode: match.mode,
+      mode: formatMode(match.mode),
       id: match.matchID,
       duration: match.duration,
       playerCount: match.playerCount,
