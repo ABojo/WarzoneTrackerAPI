@@ -55,7 +55,7 @@ exports.getPlayer = catchAsync(async (req, res) => {
         'Win %': `${((properties.wins / properties.gamesPlayed) * 100).toFixed(
           2
         )}%`,
-        'Score Per Minute': Math.round(properties.scorePerMinute),
+        SPM: Math.round(properties.scorePerMinute),
         Revives: properties.revives,
       },
       matches,
