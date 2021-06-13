@@ -56,7 +56,6 @@ exports.getPlayer = catchAsync(async (req, res) => {
           2
         )}%`,
         SPM: Math.round(properties.scorePerMinute),
-        Revives: properties.revives,
       },
       matches,
     },
