@@ -15,6 +15,7 @@ exports.getPlayer = catchAsync(async (req, res) => {
 
   const matches = matchesRes.data.matches.map((match) => {
     return {
+      teamPlacement: match.playerStats.teamPlacement,
       startTime: match.utcStartSeconds,
       endTime: match.utcEndSeconds,
       mode: match.mode,
