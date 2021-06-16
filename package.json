@@ -13,6 +13,6 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "morgan": "^1.10.0",
-    "warzone-api": "^1.0.6"
+    "warzone-api": "^1.0.7"
   }
 }
