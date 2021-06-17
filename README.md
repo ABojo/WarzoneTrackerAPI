@@ -22,7 +22,7 @@ module.exports = config;
 <ul>
   <li><b>URL</b></li>
   
-  /platforms/:platform/usernames/:username
+  /api/platforms/:platform/usernames/:username
    
    <li><b>Method</b></li>
    
