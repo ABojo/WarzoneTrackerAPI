@@ -1,8 +1,9 @@
 const WarzoneAPI = require('warzone-api');
 const api = WarzoneAPI();
+const config = require('../auth.config');
 
 const authenticate = () => {
-  api.login(process.env.EMAIL, process.env.PASSWORD);
+  api.login(config.email, config.password);
 };
 
 //Generate session tokens on right away
