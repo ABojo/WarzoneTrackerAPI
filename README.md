@@ -4,7 +4,8 @@ An express server that will return a requested Warzone player's global stats and
 
 <h2>Running this code on your own server</h2>
 
-If you want to run this code on your own server you must add valid login information to the auth.config.js file so your server is able to fetch the requested data.
+If you want to run this code on your own server you must add valid Activision/Call of Duty login information to the auth.config.js file so your server 
+is authenticated to fetch the requested data.
 
 ```javascript
 // auth.config.js
